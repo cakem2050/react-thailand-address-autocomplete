@@ -60,6 +60,7 @@ class ThailandAddress extends Component {
                 <ReactAutocomplete
                     items={this.state.items}
                     getItemValue={item => item.label}
+                    wrapperStyle={this.props.wrapperStyle}
                     renderItem={(item, highlighted) =>
                         <div
                             key={item.key}
@@ -138,6 +139,7 @@ ThailandAddress.propTypes = {
     unhighlight: PropTypes.string,
     style: PropTypes.shape({}),
     renderStyle: PropTypes.shape({}),
+    wrapperStyle: PropTypes.shape({}),
 }
 
 export default ThailandAddress

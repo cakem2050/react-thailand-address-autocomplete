@@ -1305,6 +1305,7 @@ var ThailandAddress = function (_Component) {
                     getItemValue: function getItemValue(item) {
                         return item.label;
                     },
+                    wrapperStyle: this.props.wrapperStyle,
                     renderItem: function renderItem(item, highlighted) {
                         return _react2.default.createElement(
                             'div',
@@ -1386,7 +1387,8 @@ ThailandAddress.propTypes = {
     highlight: _propTypes.PropTypes.string,
     unhighlight: _propTypes.PropTypes.string,
     style: _propTypes.PropTypes.shape({}),
-    renderStyle: _propTypes.PropTypes.shape({})
+    renderStyle: _propTypes.PropTypes.shape({}),
+    wrapperStyle: _propTypes.PropTypes.shape({})
 };
 
 exports.default = ThailandAddress;
