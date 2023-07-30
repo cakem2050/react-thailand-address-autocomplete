@@ -1201,7 +1201,7 @@ module.exports = Autocomplete;
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -1233,157 +1233,160 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var ThailandAddress = function (_Component) {
-  _inherits(ThailandAddress, _Component);
+    _inherits(ThailandAddress, _Component);
 
-  function ThailandAddress(props) {
-    _classCallCheck(this, ThailandAddress);
+    function ThailandAddress(props) {
+        _classCallCheck(this, ThailandAddress);
 
-    var _this = _possibleConstructorReturn(this, (ThailandAddress.__proto__ || Object.getPrototypeOf(ThailandAddress)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (ThailandAddress.__proto__ || Object.getPrototypeOf(ThailandAddress)).call(this, props));
 
-    _this.state = {
-      items: []
-    };
-    _this.handleChange = _this.handleChange.bind(_this);
-    _this.handelSelect = _this.handelSelect.bind(_this);
-    return _this;
-  }
-
-  _createClass(ThailandAddress, [{
-    key: 'handleChange',
-    value: function handleChange(e) {
-      var field = this.props.address;
-      e.target.name = field;
-      if (this.props.onChange) this.props.onChange(e);
-      var delimiter = this.props.delimiter;
-
-      delimiter = delimiter.length > 0 ? delimiter : ', ';
-      var searchKey = field;
-      switch (searchKey) {
-        case 'subdistrict':
-          searchKey = 'tumbon';break;
-        case 'district':
-          searchKey = 'city';break;
-        default:
-      }
-      var search = _reactThaiAddress2.default.search(_defineProperty({}, searchKey, e.target.value), 10);
-      var _search = this.props.filter ? this.props.filter(search) : search;
-      _search = _search ? _search : search;
-      this.setState({
-        items: _search.map(function (item, key) {
-          return {
-            key: key,
-            label: '' + item.tumbon + delimiter + item.city + delimiter + item.province + delimiter + item.zipcode
-          };
-        })
-      });
+        _this.state = {
+            items: []
+        };
+        _this.handleChange = _this.handleChange.bind(_this);
+        _this.handelSelect = _this.handelSelect.bind(_this);
+        return _this;
     }
-  }, {
-    key: 'handelSelect',
-    value: function handelSelect(value) {
-      var delimiter = this.props.delimiter;
 
-      var address = value.split(delimiter.length > 0 ? delimiter : ', ');
-      if (this.props.onSelect) this.props.onSelect({
-        subdistrict: address[0],
-        district: address[1],
-        province: address[2],
-        zipcode: address[3]
-      });
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _this2 = this;
+    _createClass(ThailandAddress, [{
+        key: 'handleChange',
+        value: function handleChange(e) {
+            var field = this.props.address;
+            e.target.name = field;
+            if (this.props.onChange) this.props.onChange(e);
+            var delimiter = this.props.delimiter;
 
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(_reactAutocomplete2.default, {
-          items: this.state.items,
-          getItemValue: function getItemValue(item) {
-            return item.label;
-          },
-          renderItem: function renderItem(item, highlighted) {
+            delimiter = delimiter.length > 0 ? delimiter : ', ';
+            var searchKey = field;
+            switch (searchKey) {
+                case 'subdistrict':
+                    searchKey = 'tumbon';
+                    break;
+                case 'district':
+                    searchKey = 'city';
+                    break;
+                default:
+            }
+            var search = _reactThaiAddress2.default.search(_defineProperty({}, searchKey, e.target.value), 10);
+            var _search = this.props.filter ? this.props.filter(search) : search;
+            _search = _search ? _search : search;
+            this.setState({
+                items: _search.map(function (item, key) {
+                    return {
+                        key: key,
+                        label: '' + item.tumbon + delimiter + item.city + delimiter + item.province + delimiter + item.zipcode
+                    };
+                })
+            });
+        }
+    }, {
+        key: 'handelSelect',
+        value: function handelSelect(value) {
+            var delimiter = this.props.delimiter;
+
+            var address = value.split(delimiter.length > 0 ? delimiter : ', ');
+            if (this.props.onSelect) this.props.onSelect({
+                subdistrict: address[0],
+                district: address[1],
+                province: address[2],
+                zipcode: address[3]
+            });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
+
             return _react2.default.createElement(
-              'div',
-              {
-                key: item.key,
-                style: Object.assign({
-                  backgroundColor: highlighted ? _this2.props.highlight : _this2.props.unhighlight,
-                  textAlign: 'left',
-                  border: 'solid #d9d9d9 1px',
-                  height: '32px',
-                  padding: '0 5px 0 5px',
-                  whiteSpace: 'nowrap',
-                  lineHeight: '32px'
-                }, _this2.state.items.indexOf(item) !== 0 ? { borderTop: '0' } : {}, _this2.props.renderStyle)
-              },
-              item.label
+                'div',
+                null,
+                _react2.default.createElement(_reactAutocomplete2.default, {
+                    items: this.state.items,
+                    getItemValue: function getItemValue(item) {
+                        return item.label;
+                    },
+                    renderItem: function renderItem(item, highlighted) {
+                        return _react2.default.createElement(
+                            'div',
+                            {
+                                key: item.key,
+                                style: Object.assign({
+                                    backgroundColor: highlighted ? _this2.props.highlight : _this2.props.unhighlight,
+                                    textAlign: 'left',
+                                    border: 'solid #d9d9d9 1px',
+                                    height: '32px',
+                                    padding: '0 5px 0 5px',
+                                    whiteSpace: 'nowrap',
+                                    lineHeight: '32px'
+                                }, _this2.state.items.indexOf(item) !== 0 ? { borderTop: '0' } : {}, _this2.props.renderStyle)
+                            },
+                            item.label
+                        );
+                    },
+                    renderMenu: function renderMenu(items, value, style) {
+                        return _react2.default.createElement(
+                            'div',
+                            { style: _extends({}, style, _this2.menuStyle, {
+                                    zIndex: '999',
+                                    position: 'absolute',
+                                    top: 'auto',
+                                    left: 'auto'
+                                }) },
+                            items
+                        );
+                    },
+                    inputProps: {
+                        id: this.props.id,
+                        placeholder: this.props.placeholder,
+                        style: Object.assign({
+                            height: '32px',
+                            width: '120px',
+                            borderRadius: '4px',
+                            border: 'solid #d9d9d9 1px',
+                            paddingLeft: '10px',
+                            fontSize: '15px'
+                        }, this.props.style)
+                    },
+                    value: this.props.value,
+                    onChange: function onChange(e) {
+                        return _this2.handleChange(e);
+                    },
+                    onSelect: function onSelect(value) {
+                        return _this2.handelSelect(value);
+                    }
+                })
             );
-          },
-          renderMenu: function renderMenu(items, value, style) {
-            return _react2.default.createElement(
-              'div',
-              { style: _extends({}, style, _this2.menuStyle, {
-                  zIndex: '999',
-                  position: 'absolute',
-                  top: 'auto',
-                  left: 'auto'
-                }) },
-              items
-            );
-          },
-          inputProps: {
-            id: "test",
-            placeholder: this.props.placeholder,
-            style: Object.assign({
-              height: '32px',
-              width: '120px',
-              borderRadius: '4px',
-              border: 'solid #d9d9d9 1px',
-              paddingLeft: '10px',
-              fontSize: '15px'
-            }, this.props.style)
-          },
-          value: this.props.value,
-          onChange: function onChange(e) {
-            return _this2.handleChange(e);
-          },
-          onSelect: function onSelect(value) {
-            return _this2.handelSelect(value);
-          }
-        })
-      );
-    }
-  }]);
+        }
+    }]);
 
-  return ThailandAddress;
+    return ThailandAddress;
 }(_react.Component);
 
 ThailandAddress.defaultProps = {
-  delimiter: ", ",
-  placeholder: '',
-  highlight: '#eee',
-  unhighlight: 'white',
-  style: {},
-  renderStyle: {},
-  value: '',
-  address: 'subdistrict',
-  onChange: function onChange() {},
-  onSelect: function onSelect() {}
+    delimiter: ", ",
+    placeholder: '',
+    highlight: '#eee',
+    unhighlight: 'white',
+    style: {},
+    renderStyle: {},
+    value: '',
+    address: 'subdistrict',
+    onChange: function onChange() {},
+    onSelect: function onSelect() {}
 };
 
 ThailandAddress.propTypes = {
-  address: _propTypes.PropTypes.string,
-  onSelect: _propTypes.PropTypes.func,
-  onChange: _propTypes.PropTypes.func,
-  value: _propTypes.PropTypes.string,
-  delimiter: _propTypes.PropTypes.string,
-  placeholder: _propTypes.PropTypes.string,
-  highlight: _propTypes.PropTypes.string,
-  unhighlight: _propTypes.PropTypes.string,
-  style: _propTypes.PropTypes.shape({}),
-  renderStyle: _propTypes.PropTypes.shape({})
+    address: _propTypes.PropTypes.string,
+    onSelect: _propTypes.PropTypes.func,
+    onChange: _propTypes.PropTypes.func,
+    value: _propTypes.PropTypes.string,
+    delimiter: _propTypes.PropTypes.string,
+    placeholder: _propTypes.PropTypes.string,
+    id: _propTypes.PropTypes.string,
+    highlight: _propTypes.PropTypes.string,
+    unhighlight: _propTypes.PropTypes.string,
+    style: _propTypes.PropTypes.shape({}),
+    renderStyle: _propTypes.PropTypes.shape({})
 };
 
 exports.default = ThailandAddress;
