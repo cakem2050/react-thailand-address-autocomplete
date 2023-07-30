@@ -87,6 +87,7 @@ class ThailandAddress extends Component {
             </div>
           }}
           inputProps={{
+            id:"test",
             placeholder: this.props.placeholder,
             style: Object.assign({
               height: '32px',

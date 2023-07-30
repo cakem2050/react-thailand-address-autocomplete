@@ -1334,6 +1334,7 @@ var ThailandAddress = function (_Component) {
             );
           },
           inputProps: {
+            id: "test",
             placeholder: this.props.placeholder,
             style: Object.assign({
               height: '32px',
