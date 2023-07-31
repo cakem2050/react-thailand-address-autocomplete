@@ -1318,7 +1318,8 @@ var ThailandAddress = function (_Component) {
                                     height: '32px',
                                     padding: '0 5px 0 5px',
                                     whiteSpace: 'nowrap',
-                                    lineHeight: '32px'
+                                    lineHeight: '32px',
+                                    cursor: 'pointer'
                                 }, _this2.state.items.indexOf(item) !== 0 ? { borderTop: '0' } : {}, _this2.props.renderStyle)
                             },
                             item.label

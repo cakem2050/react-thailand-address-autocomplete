@@ -72,6 +72,7 @@ class ThailandAddress extends Component {
                                     padding: '0 5px 0 5px',
                                     whiteSpace: 'nowrap',
                                     lineHeight: '32px',
+                                    cursor: 'pointer'
                                 },
                                 this.state.items.indexOf(item) !== 0 ? { borderTop: '0' } : {},
                                 this.props.renderStyle)}
