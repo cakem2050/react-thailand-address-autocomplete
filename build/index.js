@@ -1331,7 +1331,8 @@ var ThailandAddress = function (_Component) {
                                     zIndex: '999',
                                     position: 'absolute',
                                     top: 'auto',
-                                    left: 'auto'
+                                    left: 'auto',
+                                    cursor: 'pointer'
                                 }) },
                             items
                         );

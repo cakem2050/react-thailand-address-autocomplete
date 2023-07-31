@@ -87,6 +87,7 @@ class ThailandAddress extends Component {
                             position: 'absolute',
                             top: 'auto',
                             left: 'auto',
+                            cursor: 'pointer'
                         }}>
                             {items}
                         </div>
